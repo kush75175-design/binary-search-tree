@@ -6,6 +6,7 @@ from pathlib import Path
 # User defined imports
 from bst.logger import setup_logger, get_logger
 from bst.bst_simple import BinarySearchTree
+from bst.avl import AvlTree
 
 log = get_logger()
 
@@ -15,6 +16,9 @@ def _parse_arguments() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("-j", "--job", required=True, type=str,
                         help="Path to input .txt file containing the test job")
+
+    parser.add_argument("--algo", required=False, type=str, default="simple", choices=("simple", "avl"),
+                        help="Which algorithm to use for our BST")
 
     args = parser.parse_args()
     return args
@@ -33,7 +37,13 @@ def main():
         lines = f.readlines()
         log.debug(f"Parsed {len(lines):,d} lines from input job file")
 
-    tree = BinarySearchTree()  # Initialize a new tree class object
+    # Initialize a new tree class object
+    if args.algo == "simple":
+        tree = BinarySearchTree()  # Use binary search tree
+    elif args.algo == "avl":
+        tree = AvlTree()  # Use AVL tree
+    else:
+        raise ValueError(f"Unknown algorithm {args.algo}")
 
     # Loop over all lines in the job .txt file
     for line_idx, line in enumerate(lines):
