@@ -1,0 +1,7 @@
+insert 100
+insert 110
+insert 90
+search 90
+search 95
+delete 110
+delete 104

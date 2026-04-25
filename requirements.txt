@@ -1,0 +1,3 @@
+git+https://github.com/9autilus/binarytree.git@main
+loguru==0.7.3
+pyyaml==6.0.3
