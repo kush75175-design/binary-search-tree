@@ -124,6 +124,10 @@ DEBUG
 
 INFO     All done!
 ```
+> ℹ️ Note<br>
+> To simply things, we do not support duplicate values in this repo. 
+> I.e., the tree will have at max one node per node value.
+
 
 ---
 

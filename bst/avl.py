@@ -28,6 +28,10 @@ class AvlTree:
         :param value: The integer value to be inserted.
         :return: The height of the inserted new node.
         """
+        # Note: It is possible to store additional fields on-the-fly into the binarytree.Node class. For example:
+        #       self._root.rank = 0
+        #       self._root.parent = parent_node
+
         raise NotImplementedError  # TODO: Implementation
 
     def delete(self, value: int) -> None:
